@@ -142,12 +142,12 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
     For xy gantry use 2*belt moved!
     Overridden if EEPROM activated. */
     //tsc #define XAXIS_STEPS_PER_MM 98.425196
-    #define XAXIS_STEPS_PER_MM 161.83
+    #define XAXIS_STEPS_PER_MM 152.12
     /** \brief Number of steps for a 1mm move in y direction.
     For xy gantry use 2*belt moved!
     Overridden if EEPROM activated.*/
     //tsc #define YAXIS_STEPS_PER_MM 98.425196
-    #define YAXIS_STEPS_PER_MM 161.83
+    #define YAXIS_STEPS_PER_MM 152.12
     /** \brief Number of steps for a 1mm move in z direction  Overridden if EEPROM activated.*/
     //#define ZAXIS_STEPS_PER_MM 2560
     #define ZAXIS_STEPS_PER_MM 5333.33
@@ -161,7 +161,7 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
 #define EXT0_X_OFFSET 0
 #define EXT0_Y_OFFSET 0
 // for skeinforge 40 and later, steps to pull the plasic 1 mm inside the extruder, not out.  Overridden if EEPROM activated.
-#define EXT0_STEPS_PER_MM 1550
+#define EXT0_STEPS_PER_MM 1150
 // What type of sensor is used?
 // 1 is 100k thermistor (Epcos B57560G0107F000 - RepRap-Fab.org and many other)
 // 2 is 200k thermistor
@@ -199,10 +199,10 @@ the wrong direction change INVERT_X_DIR or INVERT_Y_DIR.
 #define EXT0_MAX_FEEDRATE 10
 // Feedrate from halted extruder in mm/s
 //  Overridden if EEPROM activated.
-#define EXT0_MAX_START_FEEDRATE 5
+#define EXT0_MAX_START_FEEDRATE 10
 // Acceleration in mm/s^2
 //  Overridden if EEPROM activated.
-#define EXT0_MAX_ACCELERATION 30
+#define EXT0_MAX_ACCELERATION 100
 /** Type of heat manager for this extruder. 
 - 0 = Simply switch on/off if temperature is reached. Works always.
 - 1 = PID Temperature control. Is better but needs good PID values. Defaults are a good start for most extruder.
@@ -222,7 +222,7 @@ Values for starts:
 The precise values may differ for different nozzle/resistor combination. 
  Overridden if EEPROM activated.
 */
-#define EXT0_PID_INTEGRAL_DRIVE_MAX 240
+#define EXT0_PID_INTEGRAL_DRIVE_MAX 140
 /** \brief lower value for integral part
 
 The I state should converge to the exact heater output needed for the target temperature.
@@ -232,10 +232,10 @@ A good start is 30 lower then the optimal value. You need to leave room for cool
 */
 #define EXT0_PID_INTEGRAL_DRIVE_MIN 60
 /** P-gain.  Overridden if EEPROM activated. */
-#define EXT0_PID_P   50
+#define EXT0_PID_P   24
 /** I-gain. Overridden if EEPROM activated.
 */
-#define EXT0_PID_I   35
+#define EXT0_PID_I   0.88
 /** Dgain.  Overridden if EEPROM activated.*/
 #define EXT0_PID_D 80
 // maximum time the heater is can be switched on. Max = 255.  Overridden if EEPROM activated.
@@ -1027,9 +1027,9 @@ IMPORTANT: With mode <>0 some changes in configuration.h are not set any more, a
 #define EEPROM_MODE 1
 /** Set to false to disable SD support: */
 #ifndef SDSUPPORT  // Some boards have sd support on board. These define the values already in pins.h
-#define SDSUPPORT true
+#define SDSUPPORT false
 /** If set to false all files with longer names then 8.3 or having a tilde in the name will be hidden */
-#define SD_ALLOW_LONG_NAMES true
+#define SD_ALLOW_LONG_NAMES false
 // Uncomment to enable or changed card detection pin. With card detection the card is mounted on insertion.
 #define SDCARDDETECT -1
 // Change to true if you get a inserted message on removal. 
@@ -1066,7 +1066,7 @@ The following settings override uiconfig.h!
 4 = Foltyn 3DMaster with display attached
 5 = ViKi LCD - Check pin configuration in ui.h for feature controller 5!!! sd card disabled by default!
 */
-#define FEATURE_CONTROLLER 2
+#define FEATURE_CONTROLLER 0
 
 /**
 Select the language to use.
@@ -1076,10 +1076,10 @@ Select the language to use.
 3 = brazilian portuguese
 4 = italian
 */
-#define UI_LANGUAGE 0
+#define UI_LANGUAGE 1
 
 // This is line 2 of the status display at startup. Change to your like.
-#define UI_VERSION_STRING2 "Diamond Age"
+#define UI_VERSION_STRING2 "Ordbot"
 
 /** How many ms should a single page be shown, until it is switched to the next one.*/
 #define UI_PAGES_DURATION 4000
@@ -1097,7 +1097,7 @@ info pages with next/previous button/click-encoder */
 Unfotunately, the encoder have a different count of phase changes between clicks.
 Select an encoder speed from 0 = fastest to 2 = slowest that results in one menu move per click.
 */
-#define UI_ENCODER_SPEED 2
+#define UI_ENCODER_SPEED 1
 /** \brief bounce time of keys in milliseconds */
 #define UI_KEY_BOUNCETIME 10
 
@@ -1126,12 +1126,12 @@ Values must be in range 1..255
 #define UI_SET_PRESET_HEATED_BED_TEMP_PLA 60
 #define UI_SET_PRESET_EXTRUDER_TEMP_PLA   180
 #define UI_SET_PRESET_HEATED_BED_TEMP_ABS 110
-#define UI_SET_PRESET_EXTRUDER_TEMP_ABS   260
+#define UI_SET_PRESET_EXTRUDER_TEMP_ABS   240
 // Extreme values 
 #define UI_SET_MIN_HEATED_BED_TEMP  55
 #define UI_SET_MAX_HEATED_BED_TEMP 120
 #define UI_SET_MIN_EXTRUDER_TEMP   160
-#define UI_SET_MAX_EXTRUDER_TEMP   280
+#define UI_SET_MAX_EXTRUDER_TEMP   270
 #define UI_SET_EXTRUDER_FEEDRATE 2 // mm/sec
 #define UI_SET_EXTRUDER_RETRACT_DISTANCE 3 // mm
 

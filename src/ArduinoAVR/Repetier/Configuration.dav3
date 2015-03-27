@@ -1097,7 +1097,7 @@ info pages with next/previous button/click-encoder */
 Unfotunately, the encoder have a different count of phase changes between clicks.
 Select an encoder speed from 0 = fastest to 2 = slowest that results in one menu move per click.
 */
-#define UI_ENCODER_SPEED 2
+#define UI_ENCODER_SPEED 1
 /** \brief bounce time of keys in milliseconds */
 #define UI_KEY_BOUNCETIME 10
 
@@ -1124,7 +1124,7 @@ Values must be in range 1..255
 
 // Values used for preheat
 #define UI_SET_PRESET_HEATED_BED_TEMP_PLA 60
-#define UI_SET_PRESET_EXTRUDER_TEMP_PLA   180
+#define UI_SET_PRESET_EXTRUDER_TEMP_PLA   200
 #define UI_SET_PRESET_HEATED_BED_TEMP_ABS 110
 #define UI_SET_PRESET_EXTRUDER_TEMP_ABS   260
 // Extreme values 
